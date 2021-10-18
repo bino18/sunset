@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>夕焼け&マジックアワー｜夕焼けの時刻がわかるサイト</title>
+    <title>夕焼け&マジックアワー｜夕焼けの時間がわかるサイト</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag('favicon.ico') %>
@@ -22,7 +22,7 @@
     </header>
     <div class="wrapper">
       <div class="inner">
-        <h2>日付と都市を選択すると<br>日没とマジックアワーの時刻を表示します</h2>
+        <h2>日付と都市を選択すると<br>夕焼けとマジックアワーの時間を表示します</h2>
         <%= form_with url: '/', method: :get, local: true do |f| %>
           <div class="form_area">
             <%= f.date_select :date, value: Time.now.strftime('%Y-%m-%d'), use_month_numbers:true, date_separator:'/' %>

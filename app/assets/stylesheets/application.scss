@@ -86,6 +86,7 @@
 
  .form_area {
    font-size: 1.2rem;
+   padding-bottom: 5px;
    border-bottom: 4px solid #ff7361;
  }
 
@@ -101,13 +102,20 @@
 
  #_date_1i, #_date_2i, #_date_3i {
    color: #273966;
+   padding: 0.8% 2%;
+   margin-left: 4px;
+   border: 1px solid #e2e7f1;
+   border-radius: 5px;
  }
 
  #city {
    text-align: center;
-   padding: 5px 15px;
+   padding: 0.8% 2%;
+   margin-left: 4px;
    outline: none;
    color: #273966;
+   border: 1px solid #e2e7f1;
+   border-radius: 5px;
  }
 
  #city option {
