@@ -1,0 +1,188 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+#273966 濃い青紫 メインカラー
+#618eff 薄い青紫 アクセントカラー
+#ff7361 オレンジ アクセントカラー
+
+
+*/
+
+
+
+ @import "reset";
+
+ * {
+   box-sizing: border-box;
+   table-layout: fixed;
+ }
+
+ html {
+   height: 100%;
+ }
+
+ body {
+   margin: 0;
+   line-height: 1.7;
+   letter-spacing: 1px;
+   height: 100%;
+   font-weight: bold;
+   font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Meiryo",
+    sans-serif;
+ }
+
+ header {
+   background-color: #273966;
+   padding: 10px 0;
+ }
+
+ .header_inner {
+   max-width: 600px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+ 
+ .header_logo img {
+   width: 100px;
+ }
+
+ .wrapper {
+   padding: 4% 0;
+   text-align: center;
+   min-height: 80vh;
+   background-color: #f9fbfe;
+ }
+
+ .inner {
+   max-width: 600px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 40px;
+   padding: 2%;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+   background-color: #fff;
+   color: #273966;
+ }
+
+ .inner h2 {
+   margin-bottom: 30px;
+   font-size: 1.25rem;
+ }
+
+ .form_area {
+   font-size: 1.2rem;
+   border-bottom: 4px solid #ff7361;
+ }
+
+ .form_area select {
+   outline: none; 
+ }
+
+ #date {
+   width: 300px;
+   text-align: center;
+   padding: 5px 15px;
+ }
+
+ #_date_1i, #_date_2i, #_date_3i {
+   color: #273966;
+ }
+
+ #city {
+   text-align: center;
+   padding: 5px 15px;
+   outline: none;
+   color: #273966;
+ }
+
+ #city option {
+   background-color: #fff;
+ }
+
+ .form_btn {
+   margin-top: 40px;
+   padding: 2%;
+   width: 200px;
+   font-size: 1rem;
+   color: #fff;
+   background-color: #273966;
+   transition-property: background-color;
+   transition: 0.2s linear;
+ }
+
+ .form_btn:hover {
+   background-color:#618eff;
+ } 
+
+ .result {
+ }
+
+ .result h1 {
+   text-align: center;
+   font-size: 1.6rem;
+   border-bottom: 2px solid #618eff;
+ }
+
+ .result span {
+   color:#618eff;
+   
+ }
+
+ .mh_time {
+   margin-top: 20px;
+   font-size: 1.2rem;
+ }
+
+ .mh_text {
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 10px;
+   text-align: left;
+   font-weight: normal;
+ }
+
+ footer {
+   background-color: #fff;
+   text-align: center;
+   padding: 10px;
+   border-top: 2px solid #e2e7f1;
+   font-size: 0.8rem;
+ }
+
+ .footer_inner {
+   max-width: 600px;
+   margin-left: auto;
+   margin-right: auto;
+   display: flex;
+   justify-content: left;
+ }
+
+ footer p {
+   margin-right: 10px;
+   color: #273966;
+ }
+
+ footer a {
+   color: #273966;
+   text-decoration: none;
+ }
+
+ footer a:hover {
+   color: #618eff;
+ }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>夕焼け&マジックアワー｜夕焼けの時刻がわかるサイト</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag('favicon.ico') %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header_inner">
+        <div class="header_logo">
+          <%= image_tag "logo-wh.png" %>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <div class="inner">
+        <h2>日付と都市を選択すると<br>日没とマジックアワーの時刻を表示します</h2>
+        <%= form_with url: '/', method: :get, local: true do |f| %>
+          <div class="form_area">
+            <%= f.date_select :date, value: Time.now.strftime('%Y-%m-%d'), use_month_numbers:true, date_separator:'/' %>
+            <%= f.select :city, [
+              ['札幌', '札幌市'],
+              ['仙台', '仙台市'], 
+              ['新潟', '新潟市'],
+              ['東京', '新宿区'], 
+              ['名古屋', '名古屋市'],
+              ['大阪', '大阪市'],
+              ['姫路', '姫路市'],
+              ['高知', '高知市'],
+              ['広島', '広島市'],
+              ['福岡', '福岡市'],
+              ['那覇', '那覇市'],
+              ], { selected: '新宿区' } %>
+          </div> 
+          <%= f.submit "時刻を表示", class: 'form_btn' %>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
+    
+    <footer>
+      <div class="footer_inner">
+        <p>
+          <%= link_to "開発者のTwitter", "https://twitter.com/tabby_broccoli" %>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
