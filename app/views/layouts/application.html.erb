@@ -7,6 +7,7 @@
     <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name = 'viewport' content = 'width=device-width', initial-scale=1>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2284559402460554"
      crossorigin="anonymous"></script>
     <meta name="google-site-verification" content="8c5cN_iA050soo2l0Z9gx-xVyPiPKMa7KHXnZRV3KHw"/>
@@ -21,7 +22,8 @@
       </div>
     </header>
     <div class="wrapper">
-      <div class="inner">
+      <div class="cont">
+        <div class="inner top-inner">
         <h2>日付と都市を選択すると<br>夕焼けとマジックアワーの時間を表示します</h2>
         <%= form_with url: '/', method: :get, local: true do |f| %>
           <div class="form_area">
@@ -42,6 +44,7 @@
           </div> 
           <%= f.submit "時刻を表示", class: 'form_btn' %>
         <% end %>
+        </div>
       </div>
       <%= yield %>
     </div>

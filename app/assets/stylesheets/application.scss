@@ -37,6 +37,7 @@
    line-height: 1.7;
    letter-spacing: 1px;
    height: 100%;
+   background-color: #f9fbfe;
    font-weight: bold;
    font-family: "Helvetica Neue",
     Arial,
@@ -47,14 +48,12 @@
  }
 
  header {
+   text-align: center;
    background-color: #273966;
-   padding: 10px 0;
  }
 
  .header_inner {
-   max-width: 600px;
-   margin-left: auto;
-   margin-right: auto;
+   padding: 6px
  }
  
  .header_logo img {
@@ -62,36 +61,41 @@
  }
 
  .wrapper {
+   min-height: 90vh;
+ }
+
+ .cont {
    padding: 4% 0;
+   height: 500px;
    text-align: center;
-   min-height: 80vh;
-   background-color: #f9fbfe;
+   background-image: image-url("bgi.jpg");
+   background-size: cover;
  }
 
  .inner {
-   max-width: 600px;
+   width: 90%;
    margin-left: auto;
    margin-right: auto;
-   margin-bottom: 40px;
-   padding: 2%;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-   background-color: #fff;
-   color: #273966;
+   margin-top: 40px;
+   color: #fff;
  }
 
  .inner h2 {
    margin-bottom: 30px;
    font-size: 1.25rem;
+   text-shadow: 0 0px 20px rgba(0,0,0,0.6);
  }
 
  .form_area {
    font-size: 1.2rem;
    padding-bottom: 5px;
-   border-bottom: 4px solid #ff7361;
+   
  }
 
  .form_area select {
    outline: none; 
+   background-color: #fff;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
  }
 
  #date {
@@ -124,29 +128,39 @@
 
  .form_btn {
    margin-top: 40px;
-   padding: 2%;
-   width: 200px;
+   padding: 1%;
+   width: 300px;
    font-size: 1rem;
    color: #fff;
-   background-color: #273966;
+   text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+   border: 2px solid #fff;
+   border-radius: 5px;
    transition-property: background-color;
    transition: 0.2s linear;
  }
 
  .form_btn:hover {
-   background-color:#618eff;
+   background-color: rgba(255,255,255,0.4);
  } 
 
- .result {
+ .result_box {
+   max-width: 600px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 40px;
+   padding: 3%;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+   background-color: #fff;
+   color: #273966;
  }
 
- .result h1 {
+ .result_box h1 {
    text-align: center;
    font-size: 1.6rem;
-   border-bottom: 2px solid #618eff;
+   border-bottom: 2px solid #ff7361;
  }
 
- .result span {
+ .result_box span {
    color:#618eff;
    
  }
@@ -157,7 +171,6 @@
  }
 
  .mh_text {
-   width: 70%;
    margin-left: auto;
    margin-right: auto;
    margin-top: 10px;
@@ -166,7 +179,6 @@
  }
 
  footer {
-   background-color: #fff;
    text-align: center;
    padding: 10px;
    border-top: 2px solid #e2e7f1;
@@ -193,4 +205,38 @@
 
  footer a:hover {
    color: #618eff;
+ }
+
+ @media (max-width: 1025px) {
+
+ }
+
+ @media (max-width: 599px) {
+   .cont {
+     height: 300px;
+   }
+
+   .inner h2 {
+     margin-bottom: 20px;
+     font-size: 0.9rem;
+   }
+
+   .form_btn {
+     margin-top: 20px;
+   }
+
+   .result_box h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #ff7361;
+   }
+
+   .mh_time {
+    margin-top: 10px;
+    font-size: 1rem;
+   }
+
+   .mh_text {
+     font-size: 0.9rem;
+   }
  }
