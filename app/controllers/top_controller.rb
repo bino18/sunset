@@ -32,6 +32,15 @@ class TopController < ApplicationController
         end
     end
 
+    def privacy
+    end
+
+    def support
+    end
+
+    def terms
+    end
+
     private
     def ago(ago_m)
         h, m = @sunset_time.split(":").map(&:to_i)

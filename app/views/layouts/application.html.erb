@@ -17,11 +17,14 @@
     <header>
       <div class="header_inner">
         <div class="header_logo">
-          <%= image_tag "logo-wh.png" %>
+          <%= link_to '/' do %>
+            <%= image_tag "logo-wh.png" %>
+          <% end %>
         </div>
       </div>
     </header>
     <div class="wrapper">
+    <% if current_page?('/') %>
       <div class="cont">
         <div class="inner top-inner">
         <h2>日付と都市を選択すると<br>夕焼けとマジックアワーの時間を表示します</h2>
@@ -46,15 +49,23 @@
         <% end %>
         </div>
       </div>
+      <% end %>
       <%= yield %>
     </div>
     
     <footer>
       <div class="footer_inner">
         <p>
-          <%= link_to "開発者のTwitter", "https://twitter.com/tabby_broccoli" %>
+          <%= link_to "お問い合わせ", "/support" %>
+        </p>
+        <p>
+          <%= link_to "利用規約", "/terms" %>
+        </p>
+        <p>
+          <%= link_to "プライベートポリシー", "/privacy" %>
         </p>
       </div>
+      <small>&copy;夕焼け&マジックアワー 2021</small>
     </footer>
   </body>
 </html>
