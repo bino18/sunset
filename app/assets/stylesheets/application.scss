@@ -180,7 +180,7 @@ a:hover {
 
  .mh_time {
    margin-top: 20px;
-   font-size: 1.2rem;
+   font-size: 1.25rem;
  }
 
  .mh_text {
@@ -215,25 +215,29 @@ a:hover {
    color: #273966;
  }
 
-.privacy_inner {
+ .support_inner iframe {
+   width: 640px;
+ }
+
+ .privacy_inner {
    width: 60%;
    color: #273966;
    font-weight: normal;
    margin-bottom: 20px;
-}
+ }
 
-.privacy_inner h2,
-.privacy_inner h3 {
+ .privacy_inner h2,
+ .privacy_inner h3 {
    margin: 10px;
-}
+ }
 
-.privacy_inner p {
+ .privacy_inner p {
    margin-bottom: 10px;
-}
+ }
 
-.support_inner {
+ .support_inner {
    text-align: center;
-}
+ }
 
  @media (max-width: 1025px) {
 
@@ -267,4 +271,21 @@ a:hover {
    .mh_text {
      font-size: 0.9rem;
    }
+
+   .support_inner iframe {
+    width: 70%;
+    font-size: 0.8rem;
+   }
+
+   .privacy_inner {
+    width: 80%;
+  }
+
+   .privacy_inner p {
+     font-size: 0.8rem;
+  }
+
+  footer a {
+    font-size: 0.6rem;
+  }
  }
