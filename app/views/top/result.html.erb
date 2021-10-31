@@ -1,3 +1,27 @@
+<div class="cont">
+    <div class="inner top_inner">
+        <h2>日付と都市を選択すると<br>夕焼けとマジックアワーの時間を表示します</h2>
+        <%= form_with url: '/result', method: :get, local: true do |f| %>
+        <div class="form_area">
+            <%= f.date_select :date, value: Time.now.strftime('%Y-%m-%d'), use_month_numbers:true, date_separator:'/' %>
+            <%= f.select :city, [
+              ['札幌', '札幌市'],
+              ['仙台', '仙台市'], 
+              ['新潟', '新潟市'],
+              ['東京', '新宿区'], 
+              ['名古屋', '名古屋市'],
+              ['大阪', '大阪市'],
+              ['姫路', '姫路市'],
+              ['高知', '高知市'],
+              ['広島', '広島市'],
+              ['福岡', '福岡市'],
+              ['那覇', '那覇市'],
+              ], { selected: '新宿区' } %>
+        </div> 
+        <%= f.submit "時刻を表示", class: 'form_btn' %>
+        <% end %>
+    </div>
+</div>
 <div class="inner result_inner">
     <div class="result_box">
         <% if @sunset_time %>
@@ -6,13 +30,6 @@
         </h1>
         <p class="mh_time">
             マジックアワーは<span><%= @thi_ago %></span>から<span><%= @thi_late %></span>
-        </p>
-        <% else %>
-        <h1>
-            日没時間が表示されます
-        </h1>
-        <p class="mh_time">
-            マジックアワーの時間帯が表示されます
         </p>
         <% end %>
         <p class="mh_text">

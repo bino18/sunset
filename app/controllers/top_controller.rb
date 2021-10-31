@@ -2,6 +2,31 @@ class TopController < ApplicationController
     require 'net/https'
     require 'uri'
     require 'json'
+    require "date"
+
+    def top
+        today = Date.today
+        geocode = Geocoder.search("新宿区")
+        lat = geocode.first.coordinates[0]
+        lng = geocode.first.coordinates[1]
+        @params= URI.encode_www_form(
+        { mode: "sun_moon_rise_set", year: today.year, month: today.month, day: today.day, lat: lat, lng: lng}
+        )
+        uri = URI.parse("https://labs.bitmeister.jp/ohakon/json/?#{@params}")
+            json = Net::HTTP.get_response(uri)
+            result = JSON.parse(json.body)
+            if result["rise_and_set"]
+                @sunset_time = result["rise_and_set"]["sunset_hm"]
+                h, m = @sunset_time.split(":").map(&:to_i)
+                m = m.to_s
+                if m.size == 1
+                    m = "0" + m
+                end
+                @sunset = "#{h}時#{m}分"
+            end
+            @thi_ago = ago(30)
+            @thi_late = late(30)
+    end
 
     def result
         if  params["date(1i)"]
