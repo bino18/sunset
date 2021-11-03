@@ -95,7 +95,7 @@ a:hover {
 
  .top_inner h2 {
    margin-bottom: 30px;
-   font-size: 1.25rem;
+   font-size: 1.3rem;
    text-shadow: 0 0px 20px rgba(0,0,0,0.6);
  }
 
@@ -170,7 +170,7 @@ a:hover {
  .result_box h1 {
    text-align: center;
    font-size: 1.6rem;
-   border-bottom: 2px solid #ff7361;
+   border-bottom: 4px solid #ff7361;
  }
 
  .result_box span {
@@ -200,11 +200,11 @@ a:hover {
  }
 
  .footer_inner {
-   max-width: 600px;
+   max-width: 400px;
    margin-left: auto;
    margin-right: auto;
    display: flex;
-   justify-content: left;
+   justify-content: center;
  }
 
  footer p {
@@ -240,8 +240,17 @@ a:hover {
    text-align: center;
  }
 
- @media (max-width: 1025px) {
+ .top_link {
+   margin-top: 10px;
+   font-weight: normal;
+ }
 
+ @media (max-width: 1025px) {
+   .privacy_inner a,
+   .support_inner a {
+    color: #618eff;
+    text-decoration: none;
+   }
  }
 
  @media (max-width: 599px) {
@@ -251,7 +260,7 @@ a:hover {
 
    .inner h2 {
      margin-bottom: 20px;
-     font-size: 0.9rem;
+     font-size: 1rem;
    }
 
    .form_btn {
@@ -274,7 +283,7 @@ a:hover {
    }
 
    .support_inner iframe {
-    width: 70%;
+    width: 80%;
     font-size: 0.8rem;
    }
 
@@ -286,7 +295,7 @@ a:hover {
      font-size: 0.8rem;
   }
 
-  footer a {
+  　footer a {
     font-size: 0.6rem;
   }
  }
