@@ -5,56 +5,26 @@ class TopController < ApplicationController
     require "date"
 
     def top
-        today = Date.today
+        year = Date.today.year
+        month = Date.today.month
+        day = Date.today.day
         geocode = Geocoder.search("新宿区")
         lat = geocode.first.coordinates[0]
         lng = geocode.first.coordinates[1]
-        @params= URI.encode_www_form(
-        { mode: "sun_moon_rise_set", year: today.year, month: today.month, day: today.day, lat: lat, lng: lng}
-        )
-        uri = URI.parse("https://labs.bitmeister.jp/ohakon/json/?#{@params}")
-            json = Net::HTTP.get_response(uri)
-            result = JSON.parse(json.body)
-            if result["rise_and_set"]
-                @sunset_time = result["rise_and_set"]["sunset_hm"]
-                h, m = @sunset_time.split(":").map(&:to_i)
-                m = m.to_s
-                if m.size == 1
-                    m = "0" + m
-                end
-                @sunset = "#{h}時#{m}分"
-            end
-            @thi_ago = ago(30)
-            @thi_late = late(30)
+        @time = calc_sunset(year, month, day, lat, lng)
     end
 
     def result
-        if  params["date(1i)"]
-            year = params["date(1i)"].to_i
-            month = params["date(2i)"].to_i
-            day = params["date(3i)"].to_i
-            @city = params[:city]
-            geocode = Geocoder.search(@city)
-            lat = geocode.first.coordinates[0]
-            lng = geocode.first.coordinates[1]
-            @params= URI.encode_www_form(
-            { mode: "sun_moon_rise_set", year: year, month: month, day: day, lat: lat, lng: lng}
-            )
-            uri = URI.parse("https://labs.bitmeister.jp/ohakon/json/?#{@params}")
-            json = Net::HTTP.get_response(uri)
-            result = JSON.parse(json.body)
-            if result["rise_and_set"]
-                @sunset_time = result["rise_and_set"]["sunset_hm"]
-                h, m = @sunset_time.split(":").map(&:to_i)
-                m = m.to_s
-                if m.size == 1
-                    m = "0" + m
-                end
-                @sunset = "#{h}時#{m}分"
-            end
-            @thi_ago = ago(30)
-            @thi_late = late(30)
-        end
+        year = params["date(1i)"].to_i
+        month = params["date(2i)"].to_i
+        day = params["date(3i)"].to_i
+        @city = params[:city]
+        geocode = Geocoder.search(@city)
+        lat = geocode.first.coordinates[0]
+        lng = geocode.first.coordinates[1]
+        @time = calc_sunset(year, month, day, lat, lng)
+
+        @date = "#{year}年#{month}月#{day}日"
     end
 
     def privacy
@@ -66,9 +36,34 @@ class TopController < ApplicationController
     def terms
     end
 
-    private
+    
+    def calc_sunset(year, month, day, lat, lng)
+        @params= URI.encode_www_form(
+        { mode: "sun_moon_rise_set",
+        year: year,
+        month: month,
+        day: day,
+        lat: lat,
+        lng: lng }
+        )
+        uri = URI.parse("https://labs.bitmeister.jp/ohakon/json/?#{@params}")
+        json = Net::HTTP.get_response(uri)
+        result = JSON.parse(json.body)
+        if result["rise_and_set"]
+            @sunset_hm = result["rise_and_set"]["sunset_hm"]
+            h, m = @sunset_hm.split(":").map(&:to_i)
+            m = m.to_s
+            if m.size == 1
+                m = "0" + m
+            end
+             @sunset_time = "#{h}時#{m}分"
+        end
+        @thi_ago = ago(30)
+        @thi_late = late(30)
+    end
+
     def ago(ago_m)
-        h, m = @sunset_time.split(":").map(&:to_i)
+        h, m = @sunset_hm.split(":").map(&:to_i)
         a_h = h
         a_m = m - ago_m
         if a_m < 0
@@ -83,7 +78,7 @@ class TopController < ApplicationController
     end
       
     def late(late_m)
-        h, m = @sunset_time.split(":").map(&:to_i)
+        h, m = @sunset_hm.split(":").map(&:to_i)
         l_h = h
         l_m = m + late_m
         if l_m >= 60
@@ -96,8 +91,4 @@ class TopController < ApplicationController
             end
         late_time = "#{l_h}時#{l_m}分"
     end
-
-    
-
-    
 end
