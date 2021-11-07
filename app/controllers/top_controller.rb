@@ -56,7 +56,7 @@ class TopController < ApplicationController
             if m.size == 1
                 m = "0" + m
             end
-             @sunset_time = "#{h}時#{m}分"
+            "#{h}時#{m}分"
         end
         @thi_ago = ago(30)
         @thi_late = late(30)
