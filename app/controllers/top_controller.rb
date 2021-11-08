@@ -5,13 +5,7 @@ class TopController < ApplicationController
     require "date"
 
     def top
-        year = Date.today.year
-        month = Date.today.month
-        day = Date.today.day
-        geocode = Geocoder.search("新宿区")
-        lat = geocode.first.coordinates[0]
-        lng = geocode.first.coordinates[1]
-        @time = calc_sunset(year, month, day, lat, lng)
+        
     end
 
     def result
