@@ -17,7 +17,8 @@ class TopController < ApplicationController
         lat = geocode.first.coordinates[0]
         lng = geocode.first.coordinates[1]
         @time = calc_sunset(year, month, day, lat, lng)
-
+        @thi_ago = ago(30)
+        @thi_late = late(30)
         @date = "#{year}年#{month}月#{day}日"
     end
 
@@ -52,8 +53,7 @@ class TopController < ApplicationController
             end
             "#{h}時#{m}分"
         end
-        @thi_ago = ago(30)
-        @thi_late = late(30)
+        
     end
 
     def ago(ago_m)
