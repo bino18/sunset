@@ -36,7 +36,7 @@
         </p>
         <p class="tweet_link">
             <%= link_to '日没時刻をツイートする', "https://twitter.com/intent/tweet?url=""https://simple-magichour.com/&text=#{ @city }の日没は#{ @set_time }です。
-            マジックアワーは#{ @@thi_ago }から#{ @@thi_late }の間です。", target: :_blank, rel: "noopener noreferrer" %>
+            マジックアワーは#{ @thi_ago }から#{ @thi_late }の間です。", target: :_blank, rel: "noopener noreferrer" %>
         </p>
     </div>
 </div>
