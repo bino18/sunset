@@ -8,13 +8,18 @@ class TopController < ApplicationController
         
     end
 
+    def detail
+    end
+
+
     def result
         # 入力された値をそれぞれ変数に代入
         year = params["date(1i)"].to_i
         month = params["date(2i)"].to_i
         day = params["date(3i)"].to_i
-        @city = params[:city]
+
         # 都市名から緯度経度を取得して変数に代入
+        @city = params[:city]
         geocode = Geocoder.search(@city)
         lat = geocode.first.coordinates[0]
         lng = geocode.first.coordinates[1]
