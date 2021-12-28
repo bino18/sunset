@@ -72,7 +72,7 @@ a:hover {
  }
 
  .wrapper {
-   min-height: 90vh;
+   min-height: 80vh;
  }
 
  .cont {
@@ -174,7 +174,7 @@ a:hover {
 
  .result_box h1 {
    font-size: 1.6rem;
-   border-bottom: 4px solid #ff7361;
+   border-bottom: 4px solid #8156b3;
  }
 
  .result_box span {
@@ -194,8 +194,13 @@ a:hover {
    font-weight: normal;
  }
 
- .tweet_link {
-   font-size: 0.9rem;
+ .tweet_link a{
+   color:#618eff;
+   font-size: 0.85rem;
+ }
+
+ .tweet_link a:hover {
+   color: #8156b3!important;
  }
 
  footer {
@@ -276,7 +281,7 @@ a:hover {
    .result_box h1 {
     text-align: center;
     font-size: 1.2rem;
-    border-bottom: 2px solid #ff7361;
+    border-bottom: 2px solid #8156b3;
    }
 
    .date {
@@ -289,7 +294,8 @@ a:hover {
    }
 
    .mh_text {
-     font-size: 0.9rem;
+     display: inline-block;
+     font-size: 0.85rem;
    }
 
    .support_inner iframe {
